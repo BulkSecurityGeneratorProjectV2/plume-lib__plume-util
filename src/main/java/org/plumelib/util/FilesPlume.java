@@ -778,7 +778,7 @@ public final class FilesPlume {
       }
     }
     // Call Java runtime to create a file with a unique name
-    File tmpfile = File.createTempFile(prefix + "_", "_", pathFile);
+    File tmpfile = Files.createTempFile(pathFile.toPath(), prefix + "_", "_").toFile();
     String tmpDirPath = tmpfile.getPath() + suffix;
     File tmpDir = new File(tmpDirPath);
     if (!tmpDir.mkdirs()) {
